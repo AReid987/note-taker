@@ -12,4 +12,10 @@ class NotesPage extends Component {
   }
 }
 
-export default NotesPage
+const mapStateToProps = state => {
+  return {
+    notes: state.notes
+  }
+}
+
+export default connect(mapStateToProps)(NotesPage)
