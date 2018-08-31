@@ -5,6 +5,10 @@ import NotesList from '../components/NotesList';
 
 class NotesPage extends Component {
 
+  componentDidMount() {
+    this.props.fetchNotes();
+  }
+
   render() {
     return (
       <div>
