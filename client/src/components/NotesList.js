@@ -9,7 +9,7 @@ const NotesList = ({ notes }) => {
 
   return (
     <div>
-    <ul>{ renderNotes }</ul>
+      <ul>{ renderNotes }</ul>
     </div>
   )
 }

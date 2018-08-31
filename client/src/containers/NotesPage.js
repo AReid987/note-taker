@@ -10,7 +10,7 @@ class NotesPage extends Component {
       <div>
         <h1>Notes</h1>
         <div>
-          <NotesList notes={this.props.notes}
+          <NotesList notes={this.props.notes} />
         </div>
       </div>
     )
