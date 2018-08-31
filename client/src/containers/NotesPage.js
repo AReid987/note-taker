@@ -8,7 +8,10 @@ class NotesPage extends Component {
   render() {
     return (
       <div>
-        
+        <h1>Notes</h1>
+        <div>
+          <NotesList notes={this.props.notes}
+        </div>
       </div>
     )
   }
