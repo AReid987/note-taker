@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NotesPage from './containers/NotesPage';
-
+import NoteShow from './containers/NoteShow';
 import LandingPage from './components/LandingPage';
 import NavBar from './components/NavBar';
 
@@ -17,6 +17,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={LandingPage} />
               <Route exact path="/notes" component={NotesPage} />
+              <Route exact path="/notes/:id" component={NoteShow} />
           </Switch>
         </div>
       </Router>

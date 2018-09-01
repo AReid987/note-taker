@@ -1,6 +1,6 @@
 export default function notesReducer(state = {
   loading: false,
-  notes: []
+  notes: [],
 }, action) {
 
   switch (action.type) {
