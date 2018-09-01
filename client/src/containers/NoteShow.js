@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
-class NoteShow extends Component {
-  render(){
-    return (
-      <div>
-      </div>
-    )
-  }
-}
+const NoteShow = ({ note }) =>
+  <div>
+    <h2>{note.title}</h2>
+    <p>{note.content}</p>
+  </div>;
 
-export default NoteShow
+const mapStateToProps = (state, ownProps) => {
+  const note = state.notes.find(note => note.id == ownProps.match.params.id)
+
+  if (note) {
+    return { note }
+  } else {
+    return { note: {} }
+  }
+};
+
+export default connect(mapStateToProps)(NoteShow);
