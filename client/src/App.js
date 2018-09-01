@@ -16,8 +16,9 @@ class App extends Component {
           <NavBar />
             <Switch>
               <Route exact path="/" component={LandingPage} />
-              <Route exact path="/notes" component={NotesPage} />
-              <Route exact path="/notes/:id" component={NoteShow} />
+              <Route exact path="/notes" component={NotesPage}>
+                <Route exact path="/notes/:id" component={NoteShow} />
+              </Route>
           </Switch>
         </div>
       </Router>

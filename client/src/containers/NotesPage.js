@@ -17,6 +17,9 @@ class NotesPage extends Component {
         <div>
           <NotesList notes={this.props.notes} />
         </div>
+        <div>
+          {this.props.children}
+        </div>
       </div>
     )
   }
