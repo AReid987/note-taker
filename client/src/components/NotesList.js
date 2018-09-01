@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const NotesList = ({ notes }) => {
   const renderNotes = notes.map(note =>
     <li key={note.id}>
-      {note.title}
+      <Link to={'/notes/' + note.id}>{note.title}</Link>
     </li>
   );
 
