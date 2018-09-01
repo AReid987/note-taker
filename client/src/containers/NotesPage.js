@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchNotes } from '../actions/noteActions';
+
 import NotesList from '../components/NotesList';
+import { fetchNotes } from '../actions/noteActions';
 
 class NotesPage extends Component {
 
@@ -23,8 +24,16 @@ class NotesPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    notes: state.notes
+    notes: state.notes.notes
   }
 }
 
-export default connect(mapStateToProps)(NotesPage)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchNotes: () => {
+      dispatch(fetchNotes())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NotesPage)
