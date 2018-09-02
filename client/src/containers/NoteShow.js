@@ -13,6 +13,10 @@ class NoteShow extends Component {
   }
 
   //componentDidUpdate?
+  handleOnSubmit = event => {
+    event.preventDefault()
+    this.props.updateNote(this.state.note)
+  }
 
   handleOnChange = event => {
     const field = event.target.name
