@@ -7,3 +7,19 @@ export function fetchNotes(){
     )
   };
 }
+
+export function updateNote(note){
+  return (dispatch) => {
+    dispatch({type: 'LOADING_NOTES'});
+    return fetch(`http://localhost:3001/api/notes/${note.id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ note: note })
+      })
+      .then(response => response.json())
+      .then(note => dispatch({ type: 'LOAD_NOTE', payload: note })
+    )
+  }
+}
