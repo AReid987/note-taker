@@ -5,7 +5,20 @@ class NoteShow extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isEditing: false
+      isEditing: false,
+      note: this.props.note
+    }
+  }
+
+  componentDidUpdate(prevProps, PrevState){
+    if(prevProps.note != this.props.note){
+      this.setState({ note: this.props.note })
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps, PrevState){
+    if(nextProps.note.id != PrevState.note.id) {
+      return { note: nextProps.note }
     }
   }
 
@@ -31,7 +44,7 @@ const mapStateToProps = (state, ownProps) => {
   const note = state.notes.notes.find(note => note.id == ownProps.match.params.noteId)
 
   if (note) {
-    return { note }
+    return { note: note }
   } else {
     return { note: {} }
   }
