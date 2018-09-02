@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import NoteForm from '../components/NoteForm'; 
+
 class NoteShow extends Component {
   constructor(props){
     super(props);
@@ -21,6 +23,7 @@ class NoteShow extends Component {
       return (
         <div>
           <h1>Edit Note</h1>
+          <NoteForm />
         </div>
       )
     }
