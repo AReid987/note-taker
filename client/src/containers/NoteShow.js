@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { updateNote } from '../actions/noteActions';
 import NoteForm from '../components/NoteForm';
 
 class NoteShow extends Component {
@@ -65,4 +66,12 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-export default connect(mapStateToProps)(NoteShow);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateNote: () => {
+      dispatch(updateNote())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteShow);
