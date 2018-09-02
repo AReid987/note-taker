@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const NotesList = ({ notes }) => {
   const renderNotes = notes.map(note =>
     <li key={note.id}>
-      <Link to={'/notes/' + note.id}>{note.title}</Link>
+      <Link to={`/notes/${note.id}`}>{note.title}</Link>
     </li>
   );
 

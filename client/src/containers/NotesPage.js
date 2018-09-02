@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
-import NotesList from '../components/NotesList';
 import { fetchNotes } from '../actions/noteActions';
+import NotesList from '../components/NotesList';
+import NoteShow from './NoteShow';
 
 class NotesPage extends Component {
 
@@ -16,9 +18,9 @@ class NotesPage extends Component {
         <h1>Notes</h1>
         <div>
           <NotesList notes={this.props.notes} />
-        </div>
-        <div>
-          {this.props.children}
+          <Switch>
+            <Route path="/notes/:id" component={NoteShow} />
+          </Switch>
         </div>
       </div>
     )
