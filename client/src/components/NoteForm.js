@@ -4,7 +4,7 @@ class NoteForm extends Component {
   render(){
     return (
       <div>
-        <form>
+        <form onSubmit={this.props.onSubmit}>
           <input
             type="text"
             name="title"

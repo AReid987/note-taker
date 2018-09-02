@@ -13,10 +13,13 @@ class NoteShow extends Component {
     }
   }
 
-  //componentDidUpdate?
   handleOnSubmit = event => {
     event.preventDefault()
-    this.props.updateNote(this.state.note)
+    const { updateNote } = this.props
+    updateNote(this.state.note)
+    this.setState({
+      isEditing: !this.state.isEditing
+    })
   }
 
   handleOnChange = event => {
@@ -42,7 +45,8 @@ class NoteShow extends Component {
           <h1>Edit Note</h1>
           <NoteForm
             note={this.state.note}
-            onChange={this.handleOnChange}/>
+            onChange={this.handleOnChange}
+            onSubmit={this.handleOnSubmit}/>
         </div>
       )
     }
@@ -66,12 +70,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateNote: () => {
-      dispatch(updateNote())
-    }
-  }
-}
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteShow);
+export default connect(mapStateToProps, { updateNote })(NoteShow);

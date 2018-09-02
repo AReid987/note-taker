@@ -11,15 +11,15 @@ class NotesController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
-    @post.update(title: params[:title], content: params[:content])
-    render json: @post
+    @note = Note.find(params[:id])
+    @note.update(note_params)
+    render json: @note
   end
 
   private
 
   def note_params
-    params.permit(:title, :content)
+    params.require(:note).permit(:title, :content)
   end
 
 end

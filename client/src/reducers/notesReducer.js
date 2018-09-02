@@ -1,6 +1,7 @@
 export default function notesReducer(state = {
   loading: false,
   notes: [],
+  note: ''
 }, action) {
 
   switch (action.type) {
@@ -11,10 +12,7 @@ export default function notesReducer(state = {
       return { loading: false, notes: action.payload }
 
     case 'LOAD_NOTE':
-      return [
-        ...state.filter(note => note.id !== action.payload.id),
-        Object.assign({}, action.payload)
-      ]
+      return Object.assign({}, state, { loading: false, note: action.payload})
 
     default:
       return state;
