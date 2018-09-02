@@ -7,10 +7,14 @@ class NoteForm extends Component {
         <form>
           <input
             type="text"
-            value={this.props.note.title} />
+            name="title"
+            value={this.props.note.title}
+            onChange={this.props.onChange}/>
           <input
             type="text"
-            value={this.props.note.content} />
+            name="content"
+            value={this.props.note.content}
+            onChange={this.props.onChange} />
           <input
             type="submit"
             value="Edit Note" />

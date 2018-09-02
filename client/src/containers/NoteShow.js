@@ -7,9 +7,20 @@ class NoteShow extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isEditing: false
-
+      isEditing: false,
+      note: this.props.note
     }
+  }
+
+  //componentDidUpdate?
+
+  handleOnChange = event => {
+    const field = event.target.name
+    const note = this.state.note
+    note[field] = event.target.value
+    this.setState({
+      note: note
+    })
   }
 
   handleOnClick = event => {
@@ -24,7 +35,9 @@ class NoteShow extends Component {
       return (
         <div>
           <h1>Edit Note</h1>
-          <NoteForm note={this.state.note} />
+          <NoteForm
+            note={this.state.note}
+            onChange={this.handleOnChange}/>
         </div>
       )
     }
