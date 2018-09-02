@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const NoteShow = ({ note }) =>
+class NoteShow extends Component {
+  constructor(props, context){
+    super(props, context);
+    this.state = {
+      isEditing: false
+    }
+  }
 
-  <div>
-    <h2>{note.title}</h2>
-    <p>{note.content}</p>
-  </div>;
+  render(){
 
+    return(
+      <div>
+        <h2>{this.props.note.title}</h2>
+        <p>{this.props.note.content}</p>
+      </div>
+    )
+  }
+}
 const mapStateToProps = (state, ownProps) => {
 
   const note = state.notes.notes.find(note => note.id == ownProps.match.params.noteId)

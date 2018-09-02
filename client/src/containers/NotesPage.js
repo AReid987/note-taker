@@ -7,28 +7,15 @@ import NoteShow from './NoteShow';
 import NotesList from '../components/NotesList';
 
 class NotesPage extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      isEditing: false
-    }
-  }
+
 
   componentDidMount() {
     this.props.fetchNotes();
   }
 
   render() {
-
     const { match, notes } = this.props
 
-    if (this.state.isEditing){
-      return (
-        <div>
-          <h1>Edit Note</h1>
-        </div>
-      )
-    }
     return (
       <div>
         <h1>Notes</h1>
