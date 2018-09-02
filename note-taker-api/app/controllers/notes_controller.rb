@@ -12,7 +12,7 @@ class NotesController < ApplicationController
 
   def update
     @note = Note.find(params[:id])
-    @note.update(note_params)
+    @note.update(note_params.reject{ |k,v| v.blank? })
     render json: @note
   end
 
