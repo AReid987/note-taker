@@ -10,18 +10,6 @@ class NoteShow extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, PrevState){
-    if(prevProps.note != this.props.note){
-      this.setState({ note: this.props.note })
-    }
-  }
-
-  static getDerivedStateFromProps(nextProps, PrevState){
-    if(nextProps.note.id != PrevState.note.id) {
-      return { note: nextProps.note }
-    }
-  }
-
   handleOnClick = event => {
     this.setState({
       isEditing: !this.state.isEditing
@@ -29,7 +17,13 @@ class NoteShow extends Component {
   }
 
   render(){
-
+    if (this.state.isEditing) {
+      return (
+        <div>
+          <h1>Edit Note</h1>
+        </div>
+      )
+    }
     return(
       <div>
         <h2>{this.props.note.title}</h2>
