@@ -20,6 +20,8 @@ class NoteNew extends Component {
     return (
       <div>
         <h1>New Note</h1>
+        <NoteForm
+          note={this.state.note}/>
       </div>
     )
   }
