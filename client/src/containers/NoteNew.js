@@ -21,7 +21,9 @@ class NoteNew extends Component {
     event.preventDefault()
     const { saveNote } = this.props
     saveNote(this.state.note)
-
+    this.setState({
+      saving: !this.state.isEditing
+    })
   }
 
   handleOnChange = event => {
