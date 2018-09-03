@@ -52,7 +52,7 @@ class NoteShow extends Component {
       )
     }
     return(
-      <div>
+      <div className="col-md-6 right-align jumbotron">
         <h2>{this.props.note.title}</h2>
         <p>{this.props.note.content}</p>
         <button onClick={this.handleOnClick}>Edit</button>

@@ -20,19 +20,25 @@ class NotesPage extends Component {
     const { match, notes } = this.props
 
     return (
-      <div>
+
+      <div className="col-md-12">
         <h1>
           Notes
-          <Link to={'/notes/new'}>Add Note</Link>
+          <Link
+            style={{ marginLeft: '12px' }}
+            to={'/notes/new'} className="btn btn-primary">Add Note</Link>
         </h1>
-        <div>
+        <div className="col-md-6">
           <NotesList notes={notes} />
+        </div>
+        <div className="col-md-6">
           <Switch>
             <Route path={`${match.url}/new`} component={NoteNew} />
             <Route path={`${match.url}/:noteId`} component={NoteShow} />
           </Switch>
         </div>
       </div>
+
     )
   }
 }
