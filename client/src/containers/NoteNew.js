@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { saveNote } from '../actions/noteActions';
 import NoteForm from '../components/NoteForm';
 
 class NoteNew extends Component {
@@ -45,4 +46,4 @@ class NoteNew extends Component {
   }
 }
 
-export default NoteNew
+export default connect(null, { saveNote })(NoteNew)
