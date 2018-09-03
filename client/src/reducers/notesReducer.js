@@ -19,11 +19,12 @@ export default function notesReducer(state = {
       return Object.assign({}, state, { saving: true })
 
     case 'SAVE_NOTE':
-      const note = action.payload 
+      const note = action.payload
       return {
         ...state,
         saving: false,
-        notes: [ ...state.notes, note]
+        notes: [ ...state.notes, note],
+        note: note
       }
 
     default:
