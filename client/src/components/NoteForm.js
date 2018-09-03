@@ -17,7 +17,7 @@ class NoteForm extends Component {
             onChange={this.props.onChange} />
           <input
             type="submit"
-            value="Edit Note" />
+            value={this.props.button? "Edit Note" : "Save Note"} />
         </form>
       </div>
     )
