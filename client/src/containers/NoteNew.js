@@ -16,6 +16,13 @@ class NoteNew extends Component {
     }
   }
 
+  handleOnSubmit = event => {
+    event.preventDefault()
+    const { saveNote } = this.props
+    saveNote(this.state.note)
+
+  }
+
   handleOnChange = event => {
     const field = event.target.name
     const note = this.state.note
@@ -31,7 +38,8 @@ class NoteNew extends Component {
         <h1>New Note</h1>
         <NoteForm
           note={this.state.note}
-          onChange={this.handleOnChange} />
+          onChange={this.handleOnChange}
+          onSubmit={this.handleOnSubmit} />
       </div>
     )
   }

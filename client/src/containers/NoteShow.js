@@ -46,7 +46,7 @@ class NoteShow extends Component {
           <NoteForm
             note={this.state.note}
             onChange={this.handleOnChange}
-            onSubmit={this.handleOnSubmit}/>
+            onSubmit={this.handleOnSubmit} />
         </div>
       )
     }
