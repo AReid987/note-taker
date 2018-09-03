@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 import { fetchNotes } from '../actions/noteActions';
 
 import NoteNew from './NoteNew'
@@ -19,7 +21,10 @@ class NotesPage extends Component {
 
     return (
       <div>
-        <h1>Notes</h1>
+        <h1>
+          Notes
+          <Link to={'/notes/new'}>Add Note</Link>
+        </h1>
         <div>
           <NotesList notes={notes} />
           <Switch>
