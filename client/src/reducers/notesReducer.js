@@ -1,3 +1,5 @@
+
+
 export default function notesReducer(state = {
   loading: false,
   saving: false,
@@ -20,6 +22,7 @@ export default function notesReducer(state = {
 
     case 'SAVE_NOTE':
       const note = action.payload
+    
       return {
         ...state,
         saving: false,

@@ -19,10 +19,10 @@ class NoteNew extends Component {
 
   handleOnSubmit = event => {
     event.preventDefault()
-    const { saveNote } = this.props
+    const { saveNote, history } = this.props
     saveNote(this.state.note)
     this.setState({
-      saving: !this.state.isEditing
+      saving: !this.state.saving
     })
   }
 
