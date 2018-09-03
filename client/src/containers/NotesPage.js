@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import { fetchNotes } from '../actions/noteActions';
 
+import NoteNew from './NoteNew'
 import NoteShow from './NoteShow';
 import NotesList from '../components/NotesList';
 
@@ -22,6 +23,7 @@ class NotesPage extends Component {
         <div>
           <NotesList notes={notes} />
           <Switch>
+            <Route path={`${match.url}/new`} component={NoteNew} />
             <Route path={`${match.url}/:noteId`} component={NoteShow} />
           </Switch>
         </div>
