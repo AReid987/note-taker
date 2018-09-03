@@ -1,5 +1,6 @@
 export default function notesReducer(state = {
   loading: false,
+  saving: false,
   notes: [],
   note: ''
 }, action) {
@@ -13,6 +14,12 @@ export default function notesReducer(state = {
 
     case 'LOAD_NOTE':
       return Object.assign({}, state, { loading: false, note: action.payload})
+
+    case 'SAVING_NOTE':
+      return Object.assign({}, state, { saving: true })
+
+    case 'SAVE_NOTE':
+      return Object.assign({}, state, { saving: false, note: action.payload})
 
     default:
       return state;
