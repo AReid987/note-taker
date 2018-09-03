@@ -16,12 +16,22 @@ class NoteNew extends Component {
     }
   }
 
+  handleOnChange = event => {
+    const field = event.target.name
+    const note = this.state.note
+    note[field] = event.target.value
+    this.setState({
+      note: note
+    })
+  }
+
   render(){
     return (
       <div>
         <h1>New Note</h1>
         <NoteForm
-          note={this.state.note}/>
+          note={this.state.note}
+          onChange={this.handleOnChange} />
       </div>
     )
   }
