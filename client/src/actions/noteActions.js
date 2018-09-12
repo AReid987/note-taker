@@ -25,6 +25,7 @@ export function updateNote(note){
 }
 
 export function saveNote(note){
+  console.log('C')
   return (dispatch) => {
     dispatch({type: 'SAVING_NOTE'});
     return fetch('http://localhost:3001/api/notes', {
@@ -35,7 +36,10 @@ export function saveNote(note){
       body: JSON.stringify({ note: note })
       })
       .then(response => response.json())
-      .then(note => dispatch({ type: 'SAVE_NOTE', payload: note})
+      .then(note => {
+        console.log('D')
+        dispatch({ type: 'SAVE_NOTE', payload: note})}
     )
   }
+  console.log('E')
 }
