@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
+  state = {
+    count: 0
+  };
 
-  render(){
+  handleOnClick = () => {
+    this.setState((prevState, { count }) => ({
+      count: prevState.count + 1
+    }))
+  }
+
+  render() {
     return(
-      <button>0</button>
+      <button onClick={this.handleOnClick}>{this.state.count}</button>
     )
   }
 
 }
+
+export default Counter
