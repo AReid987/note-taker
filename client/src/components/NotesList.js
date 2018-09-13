@@ -8,7 +8,7 @@ class NotesList extends Component {
     const renderNotes = this.props.notes.notes.map(note =>
       <li className="list-group-item" key={note.id}>
         <Link to={`/notes/${note.id}`}>{note.title}</Link>
-        <Counter />
+        <Counter note={note}/>
         </li>
       );
 
