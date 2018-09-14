@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NotesPage from './containers/NotesPage';
@@ -8,8 +8,7 @@ import NavBarPage from './components/NavBarPage';
 
 import './App.css';
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <Router>
         <div className="container-fluid">
@@ -21,7 +20,7 @@ class App extends Component {
         </div>
       </Router>
     );
-  }
+
 }
 
 export default App;

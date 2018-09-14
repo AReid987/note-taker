@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class LandingPage extends Component {
-  render() {
-    return (
-      <div className="jumbotron">
-        <h1>Welcome to Note Taker</h1>
-        <p>Easily, create, edit, and manage your notes</p>
-      </div>
-    )
-  }
-
+export const LandingPage = () => {
+  return (
+    <div className="jumbotron">
+      <h1>Welcome to Note Taker</h1>
+      <p>Easily, create, edit, and manage your notes</p>
+    </div>
+  )
 }
 
 export default LandingPage
