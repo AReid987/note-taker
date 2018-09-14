@@ -1,20 +1,41 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-  state = {
-    count: 0
+
+  constructor(){
+    super()
+    this.state = {
+      count: 0
+    }
   };
 
-  handleOnClick = () => {
-    this.setState((prevState, { count }) => ({
-      count: prevState.count + 1
-    }))
+  componentDidMount() {
+    fetch(`http://localhost:3001/api/notes/${this.props.note.id}`)
+    .then(response => response.json())
+    .then(note => this.setState({ count: note.count }))
+  }
+
+  handleOnClick = event => {
+    fetch(`http://localhost:3001/api/notes/${this.props.note.id}`, {
+      method: 'PUT',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ count: this.state.count + 1 })
+      })
+      .then(response => response.json())
+      .then(note => this.setState({ count: note.count }))
+
   }
 
   render() {
     return(
       <div>
-        <button onClick={this.handleOnClick}>{this.state.count}</button>
+        <button
+          className="btn btn-primary"
+          onClick={this.handleOnClick}>
+            {this.state.count}
+        </button>
       </div>
     )
   }

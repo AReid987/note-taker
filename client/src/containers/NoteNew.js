@@ -12,6 +12,7 @@ class NoteNew extends Component {
       note: {
         title: '',
         content: '',
+        count: 0,
       },
       saving: false
     }
