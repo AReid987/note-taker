@@ -36,8 +36,13 @@ export function saveNote(note){
       })
       .then(response => response.json())
       .then(note => {
-        console.log('D')
         dispatch({ type: 'SAVE_NOTE', payload: note})}
     )
+  }
+}
+
+export function sortNotes(notes){
+  return (dispatch) => {
+    dispatch({type: 'SORT_NOTE'});
   }
 }
